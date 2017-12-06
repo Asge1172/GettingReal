@@ -19,6 +19,7 @@ namespace GettingReal
             {
                 try
                 {
+
                     kNumberDB.Open();
                     SqlCommand overblik = new SqlCommand("spuOverblikOverKnumre", kNumberDB);
                     overblik.CommandType = CommandType.StoredProcedure;
@@ -34,18 +35,14 @@ namespace GettingReal
                             string medarbejder_Navn = visKnummer["MEDARBEJDER_NAVN"].ToString();
                             Console.WriteLine(kNummer + " " + kNummer_i_Brug + " " + medarbejder_Navn);
                         }
-                        
+
                     }
-                         
                 }
-                catch(SqlException error)
+                catch (SqlException error)
                 {
                     Console.WriteLine("Fejl: " + error.Message);
                 }
-
             }
-
         }
-
     }
 }
