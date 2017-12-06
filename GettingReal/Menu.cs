@@ -8,7 +8,7 @@ namespace GettingReal
 {
     class Menu
     {
-
+        Controller controller = new Controller();
 
         public void HovedMenu()
         {
@@ -30,14 +30,26 @@ namespace GettingReal
 
             }
         }
-        private static void MedarbejderMenu()
+        private void MedarbejderMenu()
         {
             Console.WriteLine("HEJ");
 
         }
-        private static void AdminMenu()
+        private void AdminMenu()
         {
-            Console.WriteLine("Hej du");
+            Console.WriteLine("Features");
+            Console.WriteLine("Tryk 1 for Overblik over K nummer i brug");
+
+            int adminMenu = Convert.ToInt32(Console.ReadLine());
+
+            switch (adminMenu)
+            {
+                case 1:
+                    controller.ShowKnumberList();
+                        break;
+
+                
+            }
 
         }
 

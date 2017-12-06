@@ -9,7 +9,13 @@ namespace GettingReal
     class Controller
     {
 
-       
+        Overblik overblik = new Overblik();
+
+        public void ShowKnumberList()
+        {
+            overblik.SpShowKnubmerList();
+
+        }
 
        
 
