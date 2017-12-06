@@ -6,15 +6,7 @@ using System.Threading.Tasks;
 
 namespace GettingReal
 {
-    class Controller
+    class Tildeling
     {
-
-       
-
-       
-
     }
-
-        //methoder fra menu
-    
 }

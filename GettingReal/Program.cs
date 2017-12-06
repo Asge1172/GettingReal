@@ -10,7 +10,11 @@ namespace GettingReal
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("hello");
+            Menu menu = new Menu();
+            menu.HovedMenu();
+
+            Console.ReadKey();
         }
+
     }
 }
