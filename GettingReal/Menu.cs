@@ -13,7 +13,7 @@ namespace GettingReal
         public void HovedMenu()
         {
             Console.WriteLine("Menu for GettingReal");
-            Console.WriteLine("punkter man skal vælge mellem");
+            Console.WriteLine("Punkter man skal vælge mellem");
             Console.WriteLine("Tryk 1 for medarbejder \nTryk 2 for Admin");
             int Menu = Convert.ToInt32(Console.ReadLine());
 
