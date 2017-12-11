@@ -14,7 +14,8 @@ namespace GettingReal
         {
             Console.WriteLine("Menu for GettingReal");
             Console.WriteLine("Punkter man skal vælge mellem");
-            Console.WriteLine("Tryk 1 for medarbejder \nTryk 2 for Admin");
+            Console.WriteLine("Tryk 1 for medarbejder");
+            Console.WriteLine("Tryk 2 for admin");
             int Menu = Convert.ToInt32(Console.ReadLine());
 
             switch (Menu)
@@ -26,13 +27,22 @@ namespace GettingReal
                 case 2:
                     AdminMenu();
                     break;
-
-
             }
         }
         private void MedarbejderMenu()
         {
-            Console.WriteLine("HEJ");
+            Console.WriteLine("Tryk 1 for at få tildelt et K-nummer");
+            int medarbejderMenu = Convert.ToInt32(Console.ReadLine());
+
+            switch (medarbejderMenu)
+            {
+                case 1:
+                    controller.GetKNummer();
+                    Console.WriteLine();
+                    break;
+                default:
+                    break;
+            }
 
         }
         private void AdminMenu()
@@ -47,11 +57,7 @@ namespace GettingReal
                 case 1:
                     controller.ShowKnumberList();
                         break;
-
-                
             }
-
         }
-
     }
 }

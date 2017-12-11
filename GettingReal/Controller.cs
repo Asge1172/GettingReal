@@ -8,19 +8,18 @@ namespace GettingReal
 {
     class Controller
     {
-
+        Tildeling tildeling = new Tildeling();
         Overblik overblik = new Overblik();
 
         public void ShowKnumberList()
         {
             overblik.SpShowKnubmerList();
-
         }
 
-       
-
+        public void GetKNummer()
+        {
+            tildeling.spuGivRNDKnummerOgLås();
+        }
     }
-
-        //methoder fra menu
-    
+        //methoder fra menu  
 }

@@ -3,26 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace GettingReal
 {
     class Tildeling
     {
-     
+
         private static string connectionsString =
         "Server=EALSQL1.eal.local; Database = DB2017_C03; User Id = user_C03; PassWord=SesamLukOp_03;";
 
         public void spuGivRNDKnummerOgLås()
         {
-            List<string> listeOverKNummre = new List<string>();
-            Random rnd = new Random();
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
             {
                 try
                 {
-
                     kNumberDB.Open();
-                    SqlCommand tildeling = new SqlCommand("spuGivRNDKnummerOgLås", kNumberDB);
+                    SqlCommand tildeling = new SqlCommand("spuGivFørsteKNummer", kNumberDB);
                     tildeling.CommandType = CommandType.StoredProcedure;
 
                     SqlDataReader givKnummerIkkeIBrug = tildeling.ExecuteReader();
@@ -31,12 +30,11 @@ namespace GettingReal
                     {
                         while (givKnummerIkkeIBrug.Read())
                         {
-                            listeOverKNummre = givKnummerIkkeIBrug["KNUMMER"].ToString();
-                            listeOverKNummre kNummer_Email = GivKnummerEmail["KNUMMER_EMAIL"].ToString();
-                            listeOverKNummre.OrderBy(x => rnd.Next()).Take(1);
-                            Console.WriteLine(kNummer + " " + kNummer_i_Brug + " ");
+                            string kNummer = givKnummerIkkeIBrug["KNUMMER"].ToString(); ;
+                            string kNummerEmail = givKnummerIkkeIBrug["KNUMMER_EMAIL"].ToString();
+                            Console.WriteLine("Dit K-nummer for i dag er: " + kNummer);
+                            Console.WriteLine("Din Email for i dag er:    " + kNummerEmail);
                         }
-
                     }
                 }
                 catch (SqlException error)
@@ -44,13 +42,6 @@ namespace GettingReal
                     Console.WriteLine("Fejl: " + error.Message);
                 }
             }
-            public void GivKnummerSomIkkeErIBrug();
-            {
-                
-}           }
-
         }
     }
-
-    
 }
