@@ -14,8 +14,9 @@ namespace GettingReal
         private static string connectionsString =
         "Server=EALSQL1.eal.local; Database = DB2017_C03; User Id = user_C03; PassWord=SesamLukOp_03;";
 
-        public void spuGivRNDKnummerOgLås()
+        public string spuGivRNDKnummerOgLås(int Medarbejder_ID)
         {
+            string knummer;
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
             {
                 try
@@ -24,24 +25,22 @@ namespace GettingReal
                     SqlCommand tildeling = new SqlCommand("spuGivFørsteKNummer", kNumberDB);
                     tildeling.CommandType = CommandType.StoredProcedure;
 
+                    tildeling.Parameters.Add(new SqlParameter("@MEDARBEJDER_ID", Medarbejder_ID));
+
                     SqlDataReader givKnummerIkkeIBrug = tildeling.ExecuteReader();
 
-                    if (givKnummerIkkeIBrug.HasRows)
-                    {
-                        while (givKnummerIkkeIBrug.Read())
-                        {
-                            string kNummer = givKnummerIkkeIBrug["KNUMMER"].ToString(); ;
-                            string kNummerEmail = givKnummerIkkeIBrug["KNUMMER_EMAIL"].ToString();
-                            Console.WriteLine("Dit K-nummer for i dag er: " + kNummer);
-                            Console.WriteLine("Din Email for i dag er:    " + kNummerEmail);
-                        }
-                    }
+                    string kNummer = givKnummerIkkeIBrug["KNUMMER"].ToString(); ;
+                    Console.WriteLine("Dit K-nummer for i dag er: " + kNummer);
+
+                    knummer = givKnummerIkkeIBrug["@KNUMMER"].ToString();
                 }
                 catch (SqlException error)
                 {
                     Console.WriteLine("Fejl: " + error.Message);
+                    knummer = string.Empty;
                 }
             }
+            return knummer;
         }
     }
 }

@@ -18,8 +18,23 @@ namespace GettingReal
 
         public void GetKNummer()
         {
-            tildeling.spuGivRNDKnummerOgLås();
+            int Medarbejder_ID = GetMedarbejderID();
+            string tildeltknummer = tildeling.spuGivRNDKnummerOgLås(Medarbejder_ID);
+            if (tildeltknummer != string.Empty)
+            {
+                Console.WriteLine("dit knummer er nu " + tildeltknummer + "!"); 
+
+            }
+            else
+            {
+                Console.WriteLine("sorry, prøv igen, noget gik galt.");
+            }
         }
-    }
-        //methoder fra menu  
+
+        public int GetMedarbejderID()
+        {
+            int MedarbejderÌD = Convert.ToInt32(Console.ReadLine());
+            return MedarbejderÌD;
+        }
+    }       //methoder fra menu  
 }

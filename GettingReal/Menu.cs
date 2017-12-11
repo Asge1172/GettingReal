@@ -43,7 +43,6 @@ namespace GettingReal
                 default:
                     break;
             }
-
         }
         private void AdminMenu()
         {
