@@ -4,3 +4,10 @@ C:\Users\Azger\Source\Repos\GettingReal\GettingReal\bin\Debug\GettingReal.pdb
 C:\Users\Azger\Source\Repos\GettingReal\GettingReal\obj\Debug\GettingReal.csproj.CoreCompileInputs.cache
 C:\Users\Azger\Source\Repos\GettingReal\GettingReal\obj\Debug\GettingReal.exe
 C:\Users\Azger\Source\Repos\GettingReal\GettingReal\obj\Debug\GettingReal.pdb
+C:\Users\Lasse Sigh Klitgaard\source\repos\GettingReal\GettingReal\bin\Debug\GettingReal.exe.config
+C:\Users\Lasse Sigh Klitgaard\source\repos\GettingReal\GettingReal\bin\Debug\GettingReal.exe
+C:\Users\Lasse Sigh Klitgaard\source\repos\GettingReal\GettingReal\bin\Debug\GettingReal.pdb
+C:\Users\Lasse Sigh Klitgaard\source\repos\GettingReal\GettingReal\obj\Debug\GettingReal.csprojResolveAssemblyReference.cache
+C:\Users\Lasse Sigh Klitgaard\source\repos\GettingReal\GettingReal\obj\Debug\GettingReal.csproj.CoreCompileInputs.cache
+C:\Users\Lasse Sigh Klitgaard\source\repos\GettingReal\GettingReal\obj\Debug\GettingReal.exe
+C:\Users\Lasse Sigh Klitgaard\source\repos\GettingReal\GettingReal\obj\Debug\GettingReal.pdb

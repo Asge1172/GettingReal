@@ -33,6 +33,7 @@ namespace GettingReal
 
         public int GetMedarbejderID()
         {
+            Console.WriteLine("Indtast dit Medarbejder ID");
             int MedarbejderÌD = Convert.ToInt32(Console.ReadLine());
             return MedarbejderÌD;
         }
