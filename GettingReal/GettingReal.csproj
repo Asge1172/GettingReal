@@ -42,8 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\..\OneDrive\AdminLogin.cs" />
+    <Compile Include="Admin.cs" />
     <Compile Include="Controller.cs" />
-    <Compile Include="Menu.cs" />
     <Compile Include="Overblik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

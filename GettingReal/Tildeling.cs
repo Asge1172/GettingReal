@@ -16,7 +16,7 @@ namespace GettingReal
 
         public string spuGivRNDKnummerOgLås(int Medarbejder_ID)
         {
-            string knummer;
+            string knummer = "";
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
             {
                 try
@@ -37,7 +37,6 @@ namespace GettingReal
                 catch (SqlException error)
                 {
                     Console.WriteLine("Fejl: " + error.Message);
-                    knummer = string.Empty;
                 }
             }
             return knummer;
