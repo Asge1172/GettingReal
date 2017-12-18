@@ -41,5 +41,35 @@ namespace GettingReal
             }
             return knummer;
         }
+        public string spuØnskKNummer(int medarbejder_ID, string knummer)
+        {
+            int knummerOptaget;
+            using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
+
+            {
+                try
+                { 
+                    kNumberDB.Open();
+                    SqlCommand wishKNumber = new SqlCommand("spWishKNumber", kNumberDB);
+                    wishKNumber.CommandType = CommandType.StoredProcedure;
+                    wishKNumber.Parameters.Add(new SqlParameter("@MEDARBEJDER_ID_1", medarbejder_ID));
+                    wishKNumber.Parameters.Add(new SqlParameter("@KNUMMER_1",knummer));
+
+                    SqlDataReader receivedMedarbejder_IDAndKnummer = Tildeling.ExecuteReader();
+                    while (receivedMedarbejder_IDAndKnummer.Read())
+                    {
+                        medarbejder_ID = receivedMedarbejder_IDAndKnummer.GetString(0);
+                        knummer = receivedMedarbejder_IDAndKnummer.GetString(1);
+                        kNummerOptaget = Convert.ToInt32(receivedMedarbejder_IDAndKnummer["@KNumberOccupied"]);
+                    }
+                    return knummerOptaget;
+                }
+                catch (SqlException error)
+                {
+                    Console.WriteLine("Fejl: " + error.Message);
+                }
+                return "";  
+            }
+        }
     }
 }

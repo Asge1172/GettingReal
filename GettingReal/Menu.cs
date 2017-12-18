@@ -32,6 +32,7 @@ namespace GettingReal
         private void MedarbejderMenu()
         {
             Console.WriteLine("Tryk 1 for at få tildelt et K-nummer");
+            Console.WriteLine("Tryk 2 for at Ønske et K-nummer");
             int medarbejderMenu = Convert.ToInt32(Console.ReadLine());
 
             switch (medarbejderMenu)
@@ -40,6 +41,8 @@ namespace GettingReal
                     controller.GetKNummer();
                     Console.WriteLine();
                     break;
+                case 2:
+                    getDesiredKNumber();
                 default:
                     break;
             }
@@ -72,5 +75,36 @@ namespace GettingReal
                     break;
             }
         }
+
+        private void getDesiredKNumber()
+        {
+            int KnumberValidate;
+            Console.Clear();
+            Console.WriteLine("Ønskning af K-nummer");
+            Console.WriteLine("Hvilket K-nummer ønsker du?");
+
+            string ØnsketKnummer = Console.ReadLine();
+
+            Console.WriteLine("Hvad er dit Medarbejder ID?");
+
+            int medarbejder_ID = Console.ReadLine();
+            
+            KnumberValidate = controller.ØnsketKNummer(ØnsketKnummer, medarbejder_ID);
+
+            if (KnumberValidate == 0)
+            {
+                Console.WriteLine("Dit K nummer er nu: " + ØnsketKnummer);
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Desværre, dit K-nummer er optaget, vælg et nyt");
+                Console.ReadKey();
+                getDesiredKNumber();
+            }
+                       
+
+        }
+
     }
 }
