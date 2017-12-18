@@ -50,9 +50,9 @@ namespace GettingReal
 
         }
 
-        public string ØnsketKNummer(string ønsketKnummer, int medarbejder_ID)
+        public int ØnsketKNummer(string ønsketKnummer, int medarbejder_ID)
         {
-            return tildeling.spuØnskKNummer(ønsketKnummer,medarbejder_ID);
+            return tildeling.spuØnskKNummer(ønsketKnummer, medarbejder_ID);
         }
     }       //methoder fra menu  
 }

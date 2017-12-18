@@ -41,9 +41,9 @@ namespace GettingReal
             }
             return knummer;
         }
-        public string spuØnskKNummer(int medarbejder_ID, string knummer)
+        public int spuØnskKNummer(string knummer, int medarbejder_ID)
         {
-            int knummerOptaget;
+            int knummerOptaget = 0;
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
 
             {
@@ -55,20 +55,21 @@ namespace GettingReal
                     wishKNumber.Parameters.Add(new SqlParameter("@MEDARBEJDER_ID_1", medarbejder_ID));
                     wishKNumber.Parameters.Add(new SqlParameter("@KNUMMER_1",knummer));
 
-                    SqlDataReader receivedMedarbejder_IDAndKnummer = Tildeling.ExecuteReader();
+                    SqlDataReader receivedMedarbejder_IDAndKnummer = wishKNumber.ExecuteReader();
                     while (receivedMedarbejder_IDAndKnummer.Read())
                     {
-                        medarbejder_ID = receivedMedarbejder_IDAndKnummer.GetString(0);
+                        medarbejder_ID = Convert.ToInt32(receivedMedarbejder_IDAndKnummer.GetString(0));
                         knummer = receivedMedarbejder_IDAndKnummer.GetString(1);
-                        kNummerOptaget = Convert.ToInt32(receivedMedarbejder_IDAndKnummer["@KNumberOccupied"]);
+                        knummerOptaget = Convert.ToInt32(receivedMedarbejder_IDAndKnummer["@KNumberOccupied"]);
                     }
                     return knummerOptaget;
                 }
                 catch (SqlException error)
                 {
                     Console.WriteLine("Fejl: " + error.Message);
+                    return 0;
                 }
-                return "";  
+                  
             }
         }
     }

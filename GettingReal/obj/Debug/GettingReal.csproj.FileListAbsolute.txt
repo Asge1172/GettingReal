@@ -23,3 +23,9 @@ C:\Users\lupor\Documents\Getting real\GettingReal\GettingReal\obj\Debug\GettingR
 C:\Users\lupor\Documents\Getting real\GettingReal\GettingReal\obj\Debug\GettingReal.csproj.CoreCompileInputs.cache
 C:\Users\lupor\Documents\Getting real\GettingReal\GettingReal\obj\Debug\GettingReal.exe
 C:\Users\lupor\Documents\Getting real\GettingReal\GettingReal\obj\Debug\GettingReal.pdb
+C:\Users\Azger\Source\Repos\GettingReal8\GettingReal\obj\Debug\GettingReal.csprojResolveAssemblyReference.cache
+C:\Users\Azger\Source\Repos\GettingReal8\GettingReal\obj\Debug\GettingReal.csproj.CoreCompileInputs.cache
+C:\Users\Azger\Source\Repos\GettingReal8\GettingReal\obj\Debug\GettingReal.exe
+C:\Users\Azger\Source\Repos\GettingReal8\GettingReal\obj\Debug\GettingReal.pdb
+C:\Users\Azger\Source\Repos\GettingReal8\GettingReal\bin\Debug\GettingReal.exe
+C:\Users\Azger\Source\Repos\GettingReal8\GettingReal\bin\Debug\GettingReal.pdb

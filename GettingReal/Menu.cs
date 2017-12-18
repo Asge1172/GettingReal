@@ -48,6 +48,7 @@ namespace GettingReal
                     break;
                 case 2:
                     getDesiredKNumber();
+                    break;
                 default:
                     break;
             }
@@ -137,19 +138,19 @@ namespace GettingReal
 
             changeAdminPassword = controller.ChangePasswordInDB(userName, newPassword);
 
-                if (changeAdminPassword == 0)
-                {
-                    Console.WriteLine("Password has been changed");
-                    Console.ReadKey();
-                }
-                else
-                {
-                    Console.WriteLine("Password has not been changed, try again");
-                    Console.ReadKey();
-                    ChangePassword(userName);
-                }
+            if (changeAdminPassword == 0)
+            {
+                Console.WriteLine("Password has been changed");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Password has not been changed, try again");
+                Console.ReadKey();
+                ChangePassword(userName);
             }
         }
+
 
         private void getDesiredKNumber()
         {
@@ -162,9 +163,11 @@ namespace GettingReal
 
             Console.WriteLine("Hvad er dit Medarbejder ID?");
 
-            int medarbejder_ID = Console.ReadLine();
-            
-            KnumberValidate = controller.ØnsketKNummer(ØnsketKnummer, medarbejder_ID);
+            int medarbejder_ID = Convert.ToInt32(Console.ReadLine());
+
+            controller.ØnsketKNummer(ØnsketKnummer, medarbejder_ID);
+
+            KnumberValidate = medarbejder_ID;
 
             if (KnumberValidate == 0)
             {
@@ -177,9 +180,7 @@ namespace GettingReal
                 Console.ReadKey();
                 getDesiredKNumber();
             }
-                       
-
         }
-
     }
+}
 
