@@ -37,7 +37,8 @@ namespace GettingReal
         {
             Console.Clear();
             Console.WriteLine("Tryk 1 for at få tildelt et K-nummer");
-            Console.WriteLine("Tryk 2 for at Ønske et K-nummer");
+            Console.WriteLine("Tryk 2 for at ønske et K-nummer");
+            Console.WriteLine("Tryk 3 for at frigive dit K-nummer");
             int medarbejderMenu = Convert.ToInt32(Console.ReadLine());
 
             switch (medarbejderMenu)
@@ -49,9 +50,29 @@ namespace GettingReal
                 case 2:
                     getDesiredKNumber();
                     break;
+                case 3:
+                    releaseKNumber();
+                    break;
                 default:
                     break;
             }
+        }
+
+        private void releaseKNumber()
+        {
+            string kNumberToBeReleased;
+
+            Console.Clear();
+            Console.WriteLine("Frigiv K-nummer");
+            Console.WriteLine();
+            Console.WriteLine("Indtast K-nummer:");
+            Console.WriteLine();
+            kNumberToBeReleased = Console.ReadLine();
+
+            kNumberToBeReleased = controller.releaseKNumberInDB(kNumberToBeReleased);
+
+            Console.WriteLine(kNumberToBeReleased);
+            Console.ReadKey();
         }
 
         public void AdminLogin(int loginCase)
@@ -95,7 +116,6 @@ namespace GettingReal
                         break;
                     }
             }
-
         }
 
         private void AdminMenu()
@@ -118,9 +138,9 @@ namespace GettingReal
                 case 4:
                     AdminLogin(1);
                     break;
-            case 5:
-            controller.ShowSeatingList();
-            break;
+                //case 5:
+                //    controller.ShowSeatingList();
+                //    break;
             }
         }
 

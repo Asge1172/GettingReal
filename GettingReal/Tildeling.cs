@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
-using DTO_PladsOverblik;
+//using DTO_PladsOverblik;
 
 
 namespace GettingReal
@@ -49,7 +49,6 @@ namespace GettingReal
         {
             int knummerOptaget = 0;
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
-
             {
                 try
                 { 
@@ -76,6 +75,41 @@ namespace GettingReal
                   
             }
         }
-        
+
+        public string releaseKNumberInDB(string kNumberToBeReleased)
+        {
+            string isKNumberFree = "";
+            bool hasKNumberBeenReleased = false;
+            using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
+            {
+                try
+                {
+                    kNumberDB.Open();
+                    SqlCommand releaseKNumber = new SqlCommand("spReleaseKNumber", kNumberDB);
+                    releaseKNumber.CommandType = CommandType.StoredProcedure;
+                    releaseKNumber.Parameters.Add(new SqlParameter("@kNumberToBeReleased", kNumberToBeReleased));
+
+                    SqlDataReader releasedKNumber = releaseKNumber.ExecuteReader();
+                    while (releasedKNumber.Read())
+                    {
+                        hasKNumberBeenReleased = Convert.ToBoolean(releasedKNumber["KNUMMER_I_BRUG"]);
+                    }
+                    if (hasKNumberBeenReleased == true)
+                    {
+                        isKNumberFree = ("K-nummer blev frigjort");
+                        return isKNumberFree;
+                    }
+                    else
+                    {
+                        isKNumberFree = ("K-nummer blev ikke frigjort");
+                        return isKNumberFree;
+                    }
+                }
+                catch (SqlException error)
+                {
+                    return ("Fejl: " + error.Message);
+                }
+            }
+        }
     }
 }

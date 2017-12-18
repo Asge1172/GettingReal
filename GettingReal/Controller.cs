@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DTO_PladsOverblik;
+//using DTO_PladsOverblik;
 
 
 namespace GettingReal
@@ -34,6 +34,11 @@ namespace GettingReal
             }
         }
 
+        public string releaseKNumberInDB(string kNumberToBeReleased)
+        {
+            return tildeling.releaseKNumberInDB(kNumberToBeReleased);
+        }
+
         public int CheckUserNameAndPassword(string userName, string password)
         {
             return admin.CheckUserNameAndPassword(userName, password);
@@ -57,9 +62,9 @@ namespace GettingReal
             return tildeling.spuØnskKNummer(ønsketKnummer, medarbejder_ID);
         }
 
-        public List<DTOPladsOverblik> ShowSeatingList() //Frederik
-        {
-            return overblik.SpuSeatingList();
-        }
+        //public List<DTOPladsOverblik> ShowSeatingList() //Frederik
+        //{
+        //    return overblik.SpuSeatingList();
+        //}
     }       //methoder fra menu  
 }
