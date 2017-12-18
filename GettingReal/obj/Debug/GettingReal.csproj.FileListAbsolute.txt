@@ -29,3 +29,6 @@ C:\Users\Azger\Source\Repos\GettingReal8\GettingReal\obj\Debug\GettingReal.exe
 C:\Users\Azger\Source\Repos\GettingReal8\GettingReal\obj\Debug\GettingReal.pdb
 C:\Users\Azger\Source\Repos\GettingReal8\GettingReal\bin\Debug\GettingReal.exe
 C:\Users\Azger\Source\Repos\GettingReal8\GettingReal\bin\Debug\GettingReal.pdb
+C:\Users\The Oval Office\Source\Repos\GettingReal2\GettingReal\obj\Debug\GettingReal.csproj.CoreCompileInputs.cache
+C:\Users\The Oval Office\Source\Repos\GettingReal2\GettingReal\obj\Debug\GettingReal.exe
+C:\Users\The Oval Office\Source\Repos\GettingReal2\GettingReal\obj\Debug\GettingReal.pdb

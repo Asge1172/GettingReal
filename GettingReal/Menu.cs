@@ -106,6 +106,7 @@ namespace GettingReal
             Console.WriteLine("Tryk 2 for at slette medarbejder");
             Console.WriteLine("Tryk 3 for shuffle medarbejdere");
             Console.WriteLine("Tryk 4 for at skifte kode");
+            Console.WriteLine("Tryk 5 for for Overblik over pladser i brug");
 
             int adminMenu = Convert.ToInt32(Console.ReadLine());
 
@@ -117,6 +118,9 @@ namespace GettingReal
                 case 4:
                     AdminLogin(1);
                     break;
+            case 5:
+            controller.ShowSeatingList();
+            break;
             }
         }
 

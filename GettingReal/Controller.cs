@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO_PladsOverblik;
+
 
 namespace GettingReal
 {
@@ -54,5 +56,10 @@ namespace GettingReal
         {
             return tildeling.spuØnskKNummer(ønsketKnummer, medarbejder_ID);
         }
+
+       // public List<DTOPladsOverblik> ShowSeatingList()
+        //{
+          //  return overblik.SpuSeatingList();
+        //}
     }       //methoder fra menu  
 }
