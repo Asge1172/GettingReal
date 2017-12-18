@@ -159,13 +159,13 @@ namespace GettingReal
             Console.WriteLine("Ønskning af K-nummer");
             Console.WriteLine("Hvilket K-nummer ønsker du?");
 
-            string ØnsketKnummer = Console.ReadLine();
+            string ØnsketKnummer = Console.ReadLine(); // Convert to??
 
             Console.WriteLine("Hvad er dit Medarbejder ID?");
 
             int medarbejder_ID = Convert.ToInt32(Console.ReadLine());
 
-            controller.ØnsketKNummer(ØnsketKnummer, medarbejder_ID);
+            controller.ØnsketKNummer(ØnsketKnummer, medarbejder_ID); // Lav en return. Methoden laver for meget
 
             KnumberValidate = medarbejder_ID;
 
