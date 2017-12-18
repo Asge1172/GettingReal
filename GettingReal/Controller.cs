@@ -10,6 +10,7 @@ namespace GettingReal
     {
         Tildeling tildeling = new Tildeling();
         Overblik overblik = new Overblik();
+        Admin admin = new Admin();
 
         public void ShowKnumberList()
         {
@@ -22,7 +23,7 @@ namespace GettingReal
             string tildeltknummer = tildeling.spuGivRNDKnummerOgLås(Medarbejder_ID);
             if (tildeltknummer != string.Empty)
             {
-                Console.WriteLine("dit knummer er nu " + tildeltknummer + "!"); 
+                Console.WriteLine("dit knummer er nu " + tildeltknummer + "!");
 
             }
             else
@@ -31,11 +32,22 @@ namespace GettingReal
             }
         }
 
+        public string CheckUserNameAndPassword(string userName, string password)
+        {
+            return admin.CheckUserNameAndPassword(userName, password);
+        }
+
         public int GetMedarbejderID()
         {
             Console.WriteLine("Indtast dit Medarbejder ID");
             int MedarbejderÌD = Convert.ToInt32(Console.ReadLine());
             return MedarbejderÌD;
+        }
+
+        public int ChangePasswordInDB(string userName, string newPassword)
+        {
+            return admin.ChangePasswordInDB(userName, newPassword);
+
         }
     }       //methoder fra menu  
 }

@@ -44,10 +44,24 @@ namespace GettingReal
                     break;
             }
         }
+
+        private void AdminLogin()
+        {
+            Console.Clear();
+            Console.WriteLine("Admin Login");
+            Console.WriteLine();
+            Console.WriteLine("Skriv venligst dit brugernavn:");
+            string adminLogin = (Console.ReadLine());
+
+        }   
+
         private void AdminMenu()
         {
+            Console.Clear();
             Console.WriteLine("Features");
-            Console.WriteLine("Tryk 1 for Overblik over K nummer i brug");
+            Console.WriteLine("Tryk 1 for overblik over K nummer i brug");
+            Console.WriteLine("Tryk 2 for at slette medarbejder");
+            Console.WriteLine("Tryk 3 for shuffle medarbejdere");
 
             int adminMenu = Convert.ToInt32(Console.ReadLine());
 
@@ -55,7 +69,7 @@ namespace GettingReal
             {
                 case 1:
                     controller.ShowKnumberList();
-                        break;
+                    break;
             }
         }
     }
