@@ -57,9 +57,9 @@ namespace GettingReal
             return tildeling.spuØnskKNummer(ønsketKnummer, medarbejder_ID);
         }
 
-       // public List<DTOPladsOverblik> ShowSeatingList()
-        //{
-          //  return overblik.SpuSeatingList();
-        //}
+        public List<DTOPladsOverblik> ShowSeatingList() //Frederik
+        {
+            return overblik.SpuSeatingList();
+        }
     }       //methoder fra menu  
 }

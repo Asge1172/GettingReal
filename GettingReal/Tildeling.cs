@@ -43,6 +43,8 @@ namespace GettingReal
             }
             return knummer;
         }
+
+
         public int spuØnskKNummer(string knummer, int medarbejder_ID)
         {
             int knummerOptaget = 0;
@@ -74,5 +76,6 @@ namespace GettingReal
                   
             }
         }
+        
     }
 }
