@@ -49,5 +49,10 @@ namespace GettingReal
             return admin.ChangePasswordInDB(userName, newPassword);
 
         }
+
+        public string ØnsketKNummer(string ønsketKnummer, int medarbejder_ID)
+        {
+            return tildeling.spuØnskKNummer(ønsketKnummer,medarbejder_ID);
+        }
     }       //methoder fra menu  
 }

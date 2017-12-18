@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 namespace GettingReal
 {
     class Admin
-    {
+    {   
         private static string connectionsString =
             "Server=EALSQL1.eal.local; Database = DB2017_C03; User Id = user_C03; PassWord=SesamLukOp_03;";
 
