@@ -32,7 +32,7 @@ namespace GettingReal
             }
         }
 
-        public string CheckUserNameAndPassword(string userName, string password)
+        public int CheckUserNameAndPassword(string userName, string password)
         {
             return admin.CheckUserNameAndPassword(userName, password);
         }

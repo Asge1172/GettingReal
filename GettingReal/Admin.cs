@@ -13,8 +13,10 @@ namespace GettingReal
         private static string connectionsString =
             "Server=EALSQL1.eal.local; Database = DB2017_C03; User Id = user_C03; PassWord=SesamLukOp_03;";
 
-        public string CheckUserNameAndPassword(string userName, string password)
+        public int CheckUserNameAndPassword(string userName, string password)
         {
+            string userNameReceived = "";
+            string passwordReceived = "";
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
             {
                 try
@@ -29,16 +31,31 @@ namespace GettingReal
                     SqlDataReader receivedUsernameAndPassword = admin.ExecuteReader();
                     while (receivedUsernameAndPassword.Read())
                     {
-                        userName = receivedUsernameAndPassword.GetString(0);
-                        password = receivedUsernameAndPassword.GetString(1);
+                        userNameReceived = receivedUsernameAndPassword.GetString(0);
+                        passwordReceived = receivedUsernameAndPassword.GetString(1);
                     }
-                    return userName + password;
+                    if (userName == userNameReceived)
+                    {
+                        if (password == passwordReceived)
+                        {
+
+                            return 0;
+                        }
+                        else
+                        {
+                            return 1;
+                        }
+                    }
+                    else
+                    {
+                        return 1;
+                    }
                 }
                 catch (SqlException error)
                 {
                     Console.WriteLine("Fejl: " + error.Message);
+                    return 1;
                 }
-                return "";
             }
         }
 
@@ -56,11 +73,21 @@ namespace GettingReal
                     changePassword.Parameters.Add(new SqlParameter("@Username", userName));
                     changePassword.Parameters.Add(new SqlParameter("@UpdatePassword", newPassword));
 
-                    SqlDataReader updatedPassword = changePassword.ExecuteReader();
+                    changePassword.ExecuteNonQuery();
 
-               
-                    hasPasswordUpdated = updatedPassword["Pass"].ToString();
+                    SqlCommand getPassword = new SqlCommand("spGetPassword", kNumberDB);
+                    getPassword.CommandType = CommandType.StoredProcedure;
+                    getPassword.Parameters.Add(new SqlParameter("@userName", userName));
 
+                    SqlDataReader reader = getPassword.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            hasPasswordUpdated = reader["Pass"].ToString();
+                        }
+                    }
                     if (newPassword == hasPasswordUpdated)
                     {
                         return 0;
@@ -74,7 +101,7 @@ namespace GettingReal
                 catch (SqlException error)
                 {
                     Console.WriteLine("Fejl: " + error.Message);
-                    return 2;
+                    return 1;
                 }
             }
         }

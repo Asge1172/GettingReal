@@ -11,10 +11,15 @@ C:\Users\Lasse Sigh Klitgaard\source\repos\GettingReal\GettingReal\obj\Debug\Get
 C:\Users\Lasse Sigh Klitgaard\source\repos\GettingReal\GettingReal\obj\Debug\GettingReal.csproj.CoreCompileInputs.cache
 C:\Users\Lasse Sigh Klitgaard\source\repos\GettingReal\GettingReal\obj\Debug\GettingReal.exe
 C:\Users\Lasse Sigh Klitgaard\source\repos\GettingReal\GettingReal\obj\Debug\GettingReal.pdb
-C:\Users\lupor\Source\Repos\GettingReal\GettingReal\bin\Debug\GettingReal.exe.config
 C:\Users\lupor\Source\Repos\GettingReal\GettingReal\bin\Debug\GettingReal.exe
 C:\Users\lupor\Source\Repos\GettingReal\GettingReal\bin\Debug\GettingReal.pdb
 C:\Users\lupor\Source\Repos\GettingReal\GettingReal\obj\Debug\GettingReal.csprojResolveAssemblyReference.cache
 C:\Users\lupor\Source\Repos\GettingReal\GettingReal\obj\Debug\GettingReal.csproj.CoreCompileInputs.cache
 C:\Users\lupor\Source\Repos\GettingReal\GettingReal\obj\Debug\GettingReal.exe
 C:\Users\lupor\Source\Repos\GettingReal\GettingReal\obj\Debug\GettingReal.pdb
+C:\Users\lupor\Documents\Getting real\GettingReal\GettingReal\bin\Debug\GettingReal.exe
+C:\Users\lupor\Documents\Getting real\GettingReal\GettingReal\bin\Debug\GettingReal.pdb
+C:\Users\lupor\Documents\Getting real\GettingReal\GettingReal\obj\Debug\GettingReal.csprojResolveAssemblyReference.cache
+C:\Users\lupor\Documents\Getting real\GettingReal\GettingReal\obj\Debug\GettingReal.csproj.CoreCompileInputs.cache
+C:\Users\lupor\Documents\Getting real\GettingReal\GettingReal\obj\Debug\GettingReal.exe
+C:\Users\lupor\Documents\Getting real\GettingReal\GettingReal\obj\Debug\GettingReal.pdb
