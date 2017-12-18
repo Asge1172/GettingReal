@@ -12,14 +12,15 @@ namespace GettingReal
 
         public void HovedMenu()
         {
-            Console.WriteLine(" _________________________________ ");
-            Console.WriteLine("|    Menu for GettingReal         |");
-            Console.WriteLine("|                                 |");
-            Console.WriteLine("|    Vælg medarbejder:            |");
-            Console.WriteLine("|                                 |");
-            Console.WriteLine("|    Tryk 1 for medarbejder       |");
-            Console.WriteLine("|    Tryk 2 for admin             |");
-            Console.WriteLine("|_________________________________|");
+            Console.WriteLine(" __________________________________________________ ");
+            Console.WriteLine("|    Menu for GettingReal                          |");
+            Console.WriteLine("|                                                  |");
+            Console.WriteLine("|    Vælg medarbejder:                             |");
+            Console.WriteLine("|                                                  |");
+            Console.WriteLine("|    Tryk 1 for medarbejder                        |");
+            Console.WriteLine("|    Tryk 2 for admin                              |");
+            Console.WriteLine("|__________________________________________________|\n"); 
+            Console.Write("Dit valg: ");
             int Menu = Convert.ToInt32(Console.ReadLine());
 
             switch (Menu)
@@ -36,9 +37,14 @@ namespace GettingReal
         private void MedarbejderMenu()
         {
             Console.Clear();
-            Console.WriteLine("Tryk 1 for at få tildelt et K-nummer");
-            Console.WriteLine("Tryk 2 for at ønske et K-nummer");
-            Console.WriteLine("Tryk 3 for at frigive dit K-nummer");
+            Console.WriteLine(" __________________________________________________ ");
+            Console.WriteLine("|    Medarbejder menu                              |");
+            Console.WriteLine("|                                                  |");
+            Console.WriteLine("|    Tryk 1 for at få tildelt et K-nummer          |");
+            Console.WriteLine("|    Tryk 2 for at ønske et K-nummer               |");
+            Console.WriteLine("|    Tryk 3 for at frigive dit K-nummer            |");
+            Console.WriteLine("|__________________________________________________|\n");
+            Console.Write("Dit valg: ");
             int medarbejderMenu = Convert.ToInt32(Console.ReadLine());
 
             switch (medarbejderMenu)
