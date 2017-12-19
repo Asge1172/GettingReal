@@ -22,7 +22,7 @@ namespace GettingReal
         public void GetKNummer()
         {
             int Medarbejder_ID = GetMedarbejderID();
-            string tildeltknummer = tildeling.spuGivRNDKnummerOgLås(Medarbejder_ID);
+            string tildeltknummer = tildeling.SpuGivRNDKnummerOgLås(Medarbejder_ID);
             if (tildeltknummer != string.Empty)
             {
                 Console.WriteLine("dit knummer er nu " + tildeltknummer + "!");
@@ -34,9 +34,9 @@ namespace GettingReal
             }
         }
 
-        public string releaseKNumberInDB(string kNumberToBeReleased)
+        public string ReleaseKNumberInDB(string kNumberToBeReleased)
         {
-            return tildeling.releaseKNumberInDB(kNumberToBeReleased);
+            return tildeling.ReleaseKNumberInDB(kNumberToBeReleased);
         }
 
         public int CheckUserNameAndPassword(string userName, string password)
@@ -51,15 +51,19 @@ namespace GettingReal
             return MedarbejderÌD;
         }
 
-        public int ChangePasswordInDB(string userName, string newPassword)
+        public bool ChangePasswordInDB(string userName, string newPassword)
         {
             return admin.ChangePasswordInDB(userName, newPassword);
+        }
 
+        public string HasPasswordBeenUpdated(bool changeAdminPassword)
+        {
+            return admin.HasPasswordBeenUpdated(changeAdminPassword);
         }
 
         public int ØnsketKNummer(string ønsketKnummer, int medarbejder_ID)
         {
-            return tildeling.spuØnskKNummer(ønsketKnummer, medarbejder_ID);
+            return tildeling.SpuØnskKNummer(ønsketKnummer, medarbejder_ID);
         }
 
         //public List<DTOPladsOverblik> ShowSeatingList() //Frederik

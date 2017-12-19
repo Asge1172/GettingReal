@@ -16,7 +16,7 @@ namespace GettingReal
         private static string connectionsString =
         "Server=EALSQL1.eal.local; Database = DB2017_C03; User Id = user_C03; PassWord=SesamLukOp_03;";
 
-        public string spuGivRNDKnummerOgLås(int Medarbejder_ID)
+        public string SpuGivRNDKnummerOgLås(int Medarbejder_ID)
         {
             string knummer = "";
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
@@ -45,7 +45,7 @@ namespace GettingReal
         }
 
 
-        public int spuØnskKNummer(string knummer, int medarbejder_ID)
+        public int SpuØnskKNummer(string knummer, int medarbejder_ID)
         {
             int knummerOptaget = 0;
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
@@ -76,9 +76,9 @@ namespace GettingReal
             }
         }
 
-        public string releaseKNumberInDB(string kNumberToBeReleased)
+        public string ReleaseKNumberInDB(string kNumberToBeReleased)
         {
-            string isKNumberFree = "";
+            string isKNumberFree = string.Empty;
             bool hasKNumberBeenReleased = false;
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
             {
@@ -107,7 +107,8 @@ namespace GettingReal
                 }
                 catch (SqlException error)
                 {
-                    return ("Fejl: " + error.Message);
+                    isKNumberFree = ("Fejl: " + error.Message);
+                    return isKNumberFree;
                 }
             }
         }

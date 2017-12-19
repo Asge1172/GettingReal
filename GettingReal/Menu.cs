@@ -54,17 +54,17 @@ namespace GettingReal
                     Console.WriteLine();
                     break;
                 case 2:
-                    getDesiredKNumber();
+                    GetDesiredKNumber();
                     break;
                 case 3:
-                    releaseKNumber();
+                    ReleaseKNumber();
                     break;
                 default:
                     break;
             }
         }
 
-        private void releaseKNumber()
+        private void ReleaseKNumber()
         {
             string kNumberToBeReleased;
 
@@ -73,9 +73,10 @@ namespace GettingReal
             Console.WriteLine();
             Console.WriteLine("Indtast K-nummer:");
             Console.WriteLine();
+
             kNumberToBeReleased = Console.ReadLine();
 
-            kNumberToBeReleased = controller.releaseKNumberInDB(kNumberToBeReleased);
+            kNumberToBeReleased = controller.ReleaseKNumberInDB(kNumberToBeReleased);
 
             Console.WriteLine(kNumberToBeReleased);
             Console.ReadKey();
@@ -83,18 +84,15 @@ namespace GettingReal
 
         public void AdminLogin(int loginCase)
         {
-            String userName, password;
-            int askForCredentials;
-
             Console.Clear();
             Console.WriteLine("Admin Login");
             Console.WriteLine();
             Console.WriteLine("Skriv dit brugernavn:");
-            userName = (Console.ReadLine());
+            string userName = (Console.ReadLine());
             Console.WriteLine("Skriv dit password");
-            password = (Console.ReadLine());
+            string password = (Console.ReadLine());
 
-            askForCredentials = controller.CheckUserNameAndPassword(userName, password);
+            int askForCredentials = controller.CheckUserNameAndPassword(userName, password);
 
             if (askForCredentials == 0)
             {
@@ -152,39 +150,28 @@ namespace GettingReal
 
         private void ChangePassword(string userName)
         {
-            String newPassword;
-            int changeAdminPassword;
-
             Console.Clear();
             Console.WriteLine("Skift kode");
             Console.WriteLine("");
             Console.WriteLine("Indtast ny kode:");
             Console.WriteLine("");
-            newPassword = (Console.ReadLine());
+
+            string newPassword = (Console.ReadLine());
+
             Console.Clear();
             Console.WriteLine("Din kode vil blive ændret til: " + newPassword);
             Console.WriteLine("Bekræft?");
             Console.ReadKey();
 
-            changeAdminPassword = controller.ChangePasswordInDB(userName, newPassword);
+            bool changeAdminPassword = controller.ChangePasswordInDB(userName, newPassword);
+            string hasPasswordBeenUpdated = controller.HasPasswordBeenUpdated(changeAdminPassword);
 
-            if (changeAdminPassword == 0)
-            {
-                Console.WriteLine("Password has been changed");
-                Console.ReadKey();
-            }
-            else
-            {
-                Console.WriteLine("Password has not been changed, try again");
-                Console.ReadKey();
-                ChangePassword(userName);
-            }
+            Console.WriteLine(hasPasswordBeenUpdated);
+            Console.ReadKey();
         }
-
-
-        private void getDesiredKNumber()
+    
+        public void GetDesiredKNumber()
         {
-            int KnumberValidate;
             Console.Clear();
             Console.WriteLine("Ønskning af K-nummer");
             Console.WriteLine("Hvilket K-nummer ønsker du?");
@@ -197,7 +184,7 @@ namespace GettingReal
 
             controller.ØnsketKNummer(ØnsketKnummer, medarbejder_ID);
 
-            KnumberValidate = medarbejder_ID;
+            int KnumberValidate = medarbejder_ID;
 
             if (KnumberValidate == 0)
             {
@@ -208,7 +195,7 @@ namespace GettingReal
             {
                 Console.WriteLine("Desværre, dit K-nummer er optaget, vælg et nyt");
                 Console.ReadKey();
-                getDesiredKNumber();
+                GetDesiredKNumber();
             }
         }
     }

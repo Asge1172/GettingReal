@@ -15,8 +15,8 @@ namespace GettingReal
 
         public int CheckUserNameAndPassword(string userName, string password)
         {
-            string userNameReceived = "";
-            string passwordReceived = "";
+            string userNameReceived = string.Empty;
+            string passwordReceived = string.Empty;
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
             {
                 try
@@ -59,9 +59,10 @@ namespace GettingReal
             }
         }
 
-        public int ChangePasswordInDB(string userName, string newPassword)
+        public bool ChangePasswordInDB(string userName, string newPassword)
         {
-            string hasPasswordUpdated = "";
+            bool isPasswordUpdated = false;
+            string hasPasswordUpdated = string.Empty;
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
             {
                 try
@@ -90,19 +91,36 @@ namespace GettingReal
                     }
                     if (newPassword == hasPasswordUpdated)
                     {
-                        return 0;
+                        isPasswordUpdated = true;
+                        return isPasswordUpdated;
                     }
                     else
                     {
-                        return 1;
+                        isPasswordUpdated = false;
+                        return isPasswordUpdated;
                     }
 
                 }
                 catch (SqlException error)
                 {
                     Console.WriteLine("Fejl: " + error.Message);
-                    return 1;
+                    return false;
                 }
+            }
+        }
+        public string HasPasswordBeenUpdated(bool changeAdminPassword)
+        {
+            string hasPasswordBeenUpdated = string.Empty;
+
+            if (changeAdminPassword == true)
+            {
+                hasPasswordBeenUpdated = ("Password has been changed");
+                return hasPasswordBeenUpdated;
+            }
+            else
+            {
+                hasPasswordBeenUpdated = ("Password has not been changed, try again");
+                return hasPasswordBeenUpdated;
             }
         }
     }
