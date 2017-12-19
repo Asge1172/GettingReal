@@ -14,9 +14,10 @@ namespace GettingReal
         Overblik overblik = new Overblik();
         Admin admin = new Admin();
 
-        public void ShowKnumberList()
+        public List<string> ShowKnumberList()
         {
-            overblik.SpShowKnubmerList();
+            List<string> list =  overblik.SpShowKnubmerList();
+            return list;
         }
 
         public void GetKNummer()

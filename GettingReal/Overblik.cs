@@ -14,8 +14,9 @@ namespace GettingReal
         private static string connectionsString =
             "Server=EALSQL1.eal.local; Database = DB2017_C03; User Id = user_C03; PassWord=SesamLukOp_03;";
 
-        public void SpShowKnubmerList()
+        public List<string> SpShowKnubmerList()
         {
+            List<string> list = new List<string>();
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
             {
                 try
@@ -34,7 +35,7 @@ namespace GettingReal
                             string kNummer = visKnummer["KNUMMER"].ToString();
                             string kNummer_i_Brug = visKnummer["KNUMMER_I_BRUG"].ToString();
                             string medarbejder_Navn = visKnummer["MEDARBEJDER_NAVN"].ToString();
-                            Console.WriteLine(kNummer + " " + kNummer_i_Brug + " " + medarbejder_Navn);
+                            list.Add(kNummer + " " + kNummer_i_Brug + " " + medarbejder_Navn);
                         }
 
                     }
@@ -44,6 +45,7 @@ namespace GettingReal
                     Console.WriteLine("Fejl: " + error.Message);
                 }
             }
+            return list;
         }
         //public List<DTOPladsOverblik> SpuSeatingList() //Frederik
         //{
