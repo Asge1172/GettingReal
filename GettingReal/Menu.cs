@@ -12,14 +12,15 @@ namespace GettingReal
 
         public void HovedMenu()
         {
-            Console.WriteLine(" _________________________________ ");
-            Console.WriteLine("|    Menu for GettingReal         |");
-            Console.WriteLine("|                                 |");
-            Console.WriteLine("|    Vælg medarbejder:            |");
-            Console.WriteLine("|                                 |");
-            Console.WriteLine("|    Tryk 1 for medarbejder       |");
-            Console.WriteLine("|    Tryk 2 for admin             |");
-            Console.WriteLine("|_________________________________|");
+            Console.WriteLine(" __________________________________________________ ");
+            Console.WriteLine("|    Menu for GettingReal                          |");
+            Console.WriteLine("|                                                  |");
+            Console.WriteLine("|    Vælg medarbejder:                             |");
+            Console.WriteLine("|                                                  |");
+            Console.WriteLine("|    Tryk 1 for medarbejder                        |");
+            Console.WriteLine("|    Tryk 2 for admin                              |");
+            Console.WriteLine("|__________________________________________________|\n"); 
+            Console.Write("Dit valg: ");
             int Menu = Convert.ToInt32(Console.ReadLine());
 
             switch (Menu)
@@ -36,8 +37,14 @@ namespace GettingReal
         private void MedarbejderMenu()
         {
             Console.Clear();
-            Console.WriteLine("Tryk 1 for at få tildelt et K-nummer");
-            Console.WriteLine("Tryk 2 for at Ønske et K-nummer");
+            Console.WriteLine(" __________________________________________________ ");
+            Console.WriteLine("|    Medarbejder menu                              |");
+            Console.WriteLine("|                                                  |");
+            Console.WriteLine("|    Tryk 1 for at få tildelt et K-nummer          |");
+            Console.WriteLine("|    Tryk 2 for at ønske et K-nummer               |");
+            Console.WriteLine("|    Tryk 3 for at frigive dit K-nummer            |");
+            Console.WriteLine("|__________________________________________________|\n");
+            Console.Write("Dit valg: ");
             int medarbejderMenu = Convert.ToInt32(Console.ReadLine());
 
             switch (medarbejderMenu)
@@ -49,9 +56,29 @@ namespace GettingReal
                 case 2:
                     getDesiredKNumber();
                     break;
+                case 3:
+                    releaseKNumber();
+                    break;
                 default:
                     break;
             }
+        }
+
+        private void releaseKNumber()
+        {
+            string kNumberToBeReleased;
+
+            Console.Clear();
+            Console.WriteLine("Frigiv K-nummer");
+            Console.WriteLine();
+            Console.WriteLine("Indtast K-nummer:");
+            Console.WriteLine();
+            kNumberToBeReleased = Console.ReadLine();
+
+            kNumberToBeReleased = controller.releaseKNumberInDB(kNumberToBeReleased);
+
+            Console.WriteLine(kNumberToBeReleased);
+            Console.ReadKey();
         }
 
         public void AdminLogin(int loginCase)
@@ -95,7 +122,6 @@ namespace GettingReal
                         break;
                     }
             }
-
         }
 
         private void AdminMenu()
@@ -106,6 +132,7 @@ namespace GettingReal
             Console.WriteLine("Tryk 2 for at slette medarbejder");
             Console.WriteLine("Tryk 3 for shuffle medarbejdere");
             Console.WriteLine("Tryk 4 for at skifte kode");
+            Console.WriteLine("Tryk 5 for for Overblik over pladser i brug");
 
             int adminMenu = Convert.ToInt32(Console.ReadLine());
 
@@ -117,6 +144,9 @@ namespace GettingReal
                 case 4:
                     AdminLogin(1);
                     break;
+                //case 5:
+                //    controller.ShowSeatingList();
+                //    break;
             }
         }
 
