@@ -76,6 +76,7 @@ namespace GettingReal
 
             kNumberToBeReleased = Console.ReadLine();
 
+
             kNumberToBeReleased = controller.ReleaseKNumberInDB(kNumberToBeReleased);
 
             Console.WriteLine(kNumberToBeReleased);
