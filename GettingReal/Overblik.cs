@@ -47,48 +47,48 @@ namespace GettingReal
             }
             return list;
         }
-        //public List<DTOPladsOverblik> SpuSeatingList() //Frederik
-        //{
-        //    List<DTOPladsOverblik> liste = new List<DTOPladsOverblik>();
-        //    using(SqlConnection seatListDB = new SqlConnection(connectionsString))
-        //    {
-        //        try
-        //        {
-        //            seatListDB.Open();
-        //            SqlCommand overblik = new SqlCommand("spuPladsOverblik",seatListDB);
-        //            overblik.CommandType = CommandType.StoredProcedure;
+        public List<string> SpuSeatingList() //Frederik
+        {
+            List<string> pladsListe = new List<string>();
+            using(SqlConnection seatListDB = new SqlConnection(connectionsString))
+            {
+                try
+                {
+                    seatListDB.Open();
+                    SqlCommand overblik = new SqlCommand("spuPladsOverblik",seatListDB);
+                    overblik.CommandType = CommandType.StoredProcedure;
 
-        //            SqlDataReader showSeating = overblik.ExecuteReader();
+                    SqlDataReader showSeating = overblik.ExecuteReader();
 
-        //            if(showSeating.HasRows)
-        //            {
+                    if(showSeating.HasRows)
+                    {
 
-        //                while(showSeating.Read())
-        //                {
-        //                    string kNummer = showSeating["KNUMMER"].ToString();
-        //                    string kNummer_i_Brug = showSeating["KNUMMER_I_BRUG"].ToString();
-        //                    string plads = showSeating["PLADS"].ToString();
-        //                    string plads_i_Brug = showSeating["PLADS_I_BRUG"].ToString();
-        //                    string medarbejder_Navn = showSeating["MEDARBEJDER_NAVN"].ToString();
+                        while(showSeating.Read())
+                        {
+                            string kNummer = showSeating["KNUMMER"].ToString();
+                            string kNummer_i_Brug = showSeating["KNUMMER_I_BRUG"].ToString();
+                            string plads = showSeating["PLADS"].ToString();
+                            string plads_i_Brug = showSeating["PLADS_I_BRUG"].ToString();
+                            string medarbejder_Navn = showSeating["MEDARBEJDER_NAVN"].ToString();
+                            pladsListe.Add(kNummer + " " + kNummer_i_Brug+ " " + plads + " " + plads_i_Brug + " " + medarbejder_Navn);
 
-        //                    DTOPladsOverblik dto = new DTOPladsOverblik();
-        //                    dto.kNummer = kNummer;
-        //                    dto.kNummer_i_Brug = kNummer_i_Brug;
-        //                    dto.medarbejder_Navn = medarbejder_Navn;
-        //                    dto.plads = plads;
-        //                    dto.plads_i_Brug = plads_i_Brug;
+                           // DTOPladsOverblik dto = new DTOPladsOverblik();
+                           // dto.kNummer = kNummer;
+                           // dto.kNummer_i_Brug = kNummer_i_Brug;
+                           //dto.medarbejder_Navn = medarbejder_Navn;
+                           // dto.plads = plads;
+                           // dto.plads_i_Brug = plads_i_Brug;
 
-        //                    //tilføerj database felter fra DTOPladsOverblik i listen.
-        //                    liste.Add(dto);
-        //                }
-        //            }
-        //        }
-        //        catch(SqlException error)
-        //        {
-        //            Console.WriteLine("Fejl: " + error.Message);
-        //        }
-        //        return liste;
-        //    }
-        //}
+                           //liste.Add(dto);
+                        }
+                    }
+                }
+                catch(SqlException error)
+                {
+                    Console.WriteLine("Fejl: " + error.Message);
+                }
+                return pladsListe;
+            }
+        }
     }
 }

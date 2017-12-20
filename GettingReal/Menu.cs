@@ -142,9 +142,9 @@ namespace GettingReal
                 case 4:
                     AdminLogin(1);
                     break;
-                //case 5:
-                //    controller.ShowSeatingList();
-                //    break;
+                case 5:
+                    controller.ShowSeatingList();
+                   break;
             }
         }
 
