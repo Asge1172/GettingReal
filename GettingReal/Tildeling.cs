@@ -18,7 +18,7 @@ namespace GettingReal
 
         public string spuGivRNDKnummerOgLås(int Medarbejder_ID)
         {
-            string knummer = "";
+            string knummer = string.Empty; 
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
             {
                 try
@@ -78,7 +78,7 @@ namespace GettingReal
 
         public string releaseKNumberInDB(string kNumberToBeReleased)
         {
-            string isKNumberFree = "";
+            string isKNumberFree = string.Empty;
             bool hasKNumberBeenReleased = false;
             using (SqlConnection kNumberDB = new SqlConnection(connectionsString))
             {

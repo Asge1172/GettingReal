@@ -14,9 +14,10 @@ namespace GettingReal
         Overblik overblik = new Overblik();
         Admin admin = new Admin();
 
-        public void ShowKnumberList()
+        public List<string> ShowKnumberList()
         {
-            overblik.SpShowKnubmerList();
+            List<string> list =  overblik.SpShowKnubmerList();
+            return list;
         }
 
         public void GetKNummer()
@@ -62,9 +63,9 @@ namespace GettingReal
             return tildeling.spuØnskKNummer(ønsketKnummer, medarbejder_ID);
         }
 
-        //public List<DTOPladsOverblik> ShowSeatingList() //Frederik
-        //{
-        //    return overblik.SpuSeatingList();
-        //}
+        public List<string> ShowSeatingList() //Frederik
+        {
+            return overblik.SpuSeatingList();
+        }
     }       //methoder fra menu  
 }

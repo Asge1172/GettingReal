@@ -66,14 +66,14 @@ namespace GettingReal
 
         private void releaseKNumber()
         {
-            string kNumberToBeReleased;
+            //string kNumberToBeReleased;
 
             Console.Clear();
             Console.WriteLine("Frigiv K-nummer");
             Console.WriteLine();
             Console.WriteLine("Indtast K-nummer:");
             Console.WriteLine();
-            kNumberToBeReleased = Console.ReadLine();
+            String kNumberToBeReleased = Console.ReadLine();
 
             kNumberToBeReleased = controller.releaseKNumberInDB(kNumberToBeReleased);
 
@@ -83,18 +83,15 @@ namespace GettingReal
 
         public void AdminLogin(int loginCase)
         {
-            String userName, password;
-            int askForCredentials;
-
             Console.Clear();
             Console.WriteLine("Admin Login");
             Console.WriteLine();
             Console.WriteLine("Skriv dit brugernavn:");
-            userName = (Console.ReadLine());
+            string userName = (Console.ReadLine());
             Console.WriteLine("Skriv dit password");
-            password = (Console.ReadLine());
+            string password = (Console.ReadLine());
 
-            askForCredentials = controller.CheckUserNameAndPassword(userName, password);
+            int askForCredentials = controller.CheckUserNameAndPassword(userName, password);
 
             if (askForCredentials == 0)
             {
@@ -139,34 +136,36 @@ namespace GettingReal
             switch (adminMenu)
             {
                 case 1:
-                    controller.ShowKnumberList();
+                    List<string> list = controller.ShowKnumberList();
+                    PrintKnumberList(list);
                     break;
                 case 4:
                     AdminLogin(1);
                     break;
-                //case 5:
-                //    controller.ShowSeatingList();
-                //    break;
+                case 5:
+                    controller.ShowSeatingList();
+                   break;
             }
         }
 
         private void ChangePassword(string userName)
         {
-            String newPassword;
-            int changeAdminPassword;
+            //String newPassword;
+           // int changeAdminPassword;
 
             Console.Clear();
             Console.WriteLine("Skift kode");
             Console.WriteLine("");
             Console.WriteLine("Indtast ny kode:");
             Console.WriteLine("");
-            newPassword = (Console.ReadLine());
+
+            string newPassword = Convert.ToString(Console.ReadLine());
             Console.Clear();
             Console.WriteLine("Din kode vil blive ændret til: " + newPassword);
             Console.WriteLine("Bekræft?");
             Console.ReadKey();
 
-            changeAdminPassword = controller.ChangePasswordInDB(userName, newPassword);
+            int changeAdminPassword = controller.ChangePasswordInDB(userName, newPassword);
 
             if (changeAdminPassword == 0)
             {
@@ -189,13 +188,13 @@ namespace GettingReal
             Console.WriteLine("Ønskning af K-nummer");
             Console.WriteLine("Hvilket K-nummer ønsker du?");
 
-            string ØnsketKnummer = Console.ReadLine();
+            string ØnsketKnummer = Convert.ToString(Console.ReadLine()); // Convert to??
 
             Console.WriteLine("Hvad er dit Medarbejder ID?");
 
             int medarbejder_ID = Convert.ToInt32(Console.ReadLine());
 
-            controller.ØnsketKNummer(ØnsketKnummer, medarbejder_ID);
+            controller.ØnsketKNummer(ØnsketKnummer, medarbejder_ID); // Lav en return. Methoden laver for meget
 
             KnumberValidate = medarbejder_ID;
 
@@ -210,6 +209,15 @@ namespace GettingReal
                 Console.ReadKey();
                 getDesiredKNumber();
             }
+        }
+        public void PrintKnumberList(List<string> list)
+        {
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+
+            }
+
         }
     }
 }
